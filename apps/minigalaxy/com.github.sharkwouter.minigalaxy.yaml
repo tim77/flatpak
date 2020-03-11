@@ -1,0 +1,29 @@
+---
+app-id: com.github.sharkwouter.minigalaxy
+runtime: org.gnome.Platform
+runtime-version: '3.34'
+sdk: org.gnome.Sdk
+command: minigalaxy
+rename-desktop-file: minigalaxy.desktop
+rename-icon: minigalaxy
+finish-args:
+- "--device=dri"
+- "--share=ipc"
+- "--share=network"
+- "--socket=wayland"
+- "--socket=x11"
+modules:
+- pypi-dependencies.json
+- name: other-modules
+- name: minigalaxy
+  buildsystem: simple
+  build-commands:
+  - pip3 install --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST}
+    --no-deps .
+  sources:
+  - type: git
+    tag: 0.9.3
+    commit: d1fd9695e2778833df4cddb7b0b868aa680c797c
+    url: https://github.com/sharkwouter/minigalaxy/
+  - type: patch
+    path: fix-hardcoded-paths.patch
