@@ -3,10 +3,16 @@ app-id: com.github.sharkwouter.minigalaxy
 runtime: org.gnome.Platform
 runtime-version: '3.34'
 sdk: org.gnome.Sdk
+add-extensions:
+  org.gnome.Platform.Compat.i386:
+    directory: lib/i386-linux-gnu
+    add-ld-path: "."
+    version: "3.34"
 command: minigalaxy
 rename-desktop-file: minigalaxy.desktop
 rename-icon: minigalaxy
 finish-args:
+- "--allow=multiarch"
 - "--device=dri"
 - "--share=ipc"
 - "--share=network"
