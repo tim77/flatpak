@@ -1,0 +1,2 @@
+# flatpak
+Flatpak related stuff
