@@ -1,4 +1,5 @@
-.flatpak-builder
-build-dir
-flatpak-builder-tools
-repo
+.flatpak-builder/
+1-exclude-from-repo/
+build-dir/
+flatpak-builder-tools/
+repo/
