@@ -1,0 +1,33 @@
+app-id: net.veloren.veloren
+runtime: org.freedesktop.Platform
+runtime-version: '19.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-nightly
+command: veloren
+finish-args:
+  - "--allow=multiarch"
+  - "--device=all"
+  - "--device=dri"
+  - "--share=ipc"
+  - "--share=network"
+  - "--socket=pulseaudio"
+  - "--socket=wayland"
+  - "--socket=x11"
+build-options:
+  append-path: /usr/lib/sdk/rust-nightly/bin
+  env:
+    RUSTFLAGS: --remap-path-prefix =../
+    CARGO_HOME: /run/build/veloren/cargo
+modules:
+  - name: veloren
+    buildsystem: simple
+    build-commands:
+      - cargo --offline fetch --manifest-path Cargo.toml --verbose
+      - cargo --offline build --verbose
+      - install -D -m 755 ./target/debug/veloren-voxygen -t /app/bin/
+    sources:
+      - type: git
+        commit: 198b8a49946c5d6daa91b965f0dd72bf359c8921
+        url: https://gitlab.com/veloren/veloren
+      - generated-sources.json
