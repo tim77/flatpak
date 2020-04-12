@@ -294,13 +294,9 @@
     {
         "type": "shell",
         "commands": [
-            "git clone --bare cargo/vendor/auth-common cargo/git/db/auth-common-f2b6d959f2b36f0f"
-        ]
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "if test -d cargo/vendor/auth-common/auth-common; then mv cargo/vendor/auth-common cargo/vendor/auth-common.bak; cp -ar --dereference --reflink=auto cargo/vendor/auth-common.bak/auth-common cargo/vendor/auth-common; rm -r cargo/vendor/auth-common.bak; fi"
+            "mv cargo/vendor/auth-common cargo/vendor/auth-common.repo",
+            "mv cargo/vendor/auth-common.repo/common cargo/vendor/auth-common",
+            "rm -rf cargo/vendor/auth-common.repo"
         ]
     },
     {
@@ -308,12 +304,6 @@
         "url": "data:%7B%22package%22%3A%20null%2C%20%22files%22%3A%20%7B%7D%7D",
         "dest": "cargo/vendor/auth-common",
         "dest-filename": ".cargo-checksum.json"
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "echo rm -r cargo/vendor/auth-common/.git"
-        ]
     },
     {
         "type": "git",
@@ -324,13 +314,9 @@
     {
         "type": "shell",
         "commands": [
-            "git clone --bare cargo/vendor/authc cargo/git/db/authc-f2b6d959f2b36f0f"
-        ]
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "if test -d cargo/vendor/authc/authc; then mv cargo/vendor/authc cargo/vendor/authc.bak; cp -ar --dereference --reflink=auto cargo/vendor/authc.bak/authc cargo/vendor/authc; rm -r cargo/vendor/authc.bak; fi"
+            "mv cargo/vendor/authc cargo/vendor/authc.repo",
+            "mv cargo/vendor/authc.repo/authc cargo/vendor/authc",
+            "rm -rf cargo/vendor/authc.repo"
         ]
     },
     {
@@ -338,12 +324,6 @@
         "url": "data:%7B%22package%22%3A%20null%2C%20%22files%22%3A%20%7B%7D%7D",
         "dest": "cargo/vendor/authc",
         "dest-filename": ".cargo-checksum.json"
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "echo rm -r cargo/vendor/authc/.git"
-        ]
     },
     {
         "type": "file",
@@ -913,13 +893,9 @@
     {
         "type": "shell",
         "commands": [
-            "git clone --bare cargo/vendor/conrod_core cargo/git/db/conrod_core-866ff3302b387d79"
-        ]
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "if test -d cargo/vendor/conrod_core/conrod_core; then mv cargo/vendor/conrod_core cargo/vendor/conrod_core.bak; cp -ar --dereference --reflink=auto cargo/vendor/conrod_core.bak/conrod_core cargo/vendor/conrod_core; rm -r cargo/vendor/conrod_core.bak; fi"
+            "mv cargo/vendor/conrod_core cargo/vendor/conrod_core.repo",
+            "mv cargo/vendor/conrod_core.repo/conrod_core cargo/vendor/conrod_core",
+            "rm -rf cargo/vendor/conrod_core.repo"
         ]
     },
     {
@@ -927,12 +903,6 @@
         "url": "data:%7B%22package%22%3A%20null%2C%20%22files%22%3A%20%7B%7D%7D",
         "dest": "cargo/vendor/conrod_core",
         "dest-filename": ".cargo-checksum.json"
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "echo rm -r cargo/vendor/conrod_core/.git"
-        ]
     },
     {
         "type": "git",
@@ -943,13 +913,9 @@
     {
         "type": "shell",
         "commands": [
-            "git clone --bare cargo/vendor/conrod_derive cargo/git/db/conrod_derive-866ff3302b387d79"
-        ]
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "if test -d cargo/vendor/conrod_derive/conrod_derive; then mv cargo/vendor/conrod_derive cargo/vendor/conrod_derive.bak; cp -ar --dereference --reflink=auto cargo/vendor/conrod_derive.bak/conrod_derive cargo/vendor/conrod_derive; rm -r cargo/vendor/conrod_derive.bak; fi"
+            "mv cargo/vendor/conrod_derive cargo/vendor/conrod_derive.repo",
+            "mv cargo/vendor/conrod_derive.repo/conrod_derive cargo/vendor/conrod_derive",
+            "rm -rf cargo/vendor/conrod_derive.repo"
         ]
     },
     {
@@ -957,12 +923,6 @@
         "url": "data:%7B%22package%22%3A%20null%2C%20%22files%22%3A%20%7B%7D%7D",
         "dest": "cargo/vendor/conrod_derive",
         "dest-filename": ".cargo-checksum.json"
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "echo rm -r cargo/vendor/conrod_derive/.git"
-        ]
     },
     {
         "type": "git",
@@ -973,13 +933,9 @@
     {
         "type": "shell",
         "commands": [
-            "git clone --bare cargo/vendor/conrod_winit cargo/git/db/conrod_winit-866ff3302b387d79"
-        ]
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "if test -d cargo/vendor/conrod_winit/conrod_winit; then mv cargo/vendor/conrod_winit cargo/vendor/conrod_winit.bak; cp -ar --dereference --reflink=auto cargo/vendor/conrod_winit.bak/conrod_winit cargo/vendor/conrod_winit; rm -r cargo/vendor/conrod_winit.bak; fi"
+            "mv cargo/vendor/conrod_winit cargo/vendor/conrod_winit.repo",
+            "mv cargo/vendor/conrod_winit.repo/backends/conrod_winit cargo/vendor/conrod_winit",
+            "rm -rf cargo/vendor/conrod_winit.repo"
         ]
     },
     {
@@ -987,12 +943,6 @@
         "url": "data:%7B%22package%22%3A%20null%2C%20%22files%22%3A%20%7B%7D%7D",
         "dest": "cargo/vendor/conrod_winit",
         "dest-filename": ".cargo-checksum.json"
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "echo rm -r cargo/vendor/conrod_winit/.git"
-        ]
     },
     {
         "type": "file",
@@ -2509,28 +2459,10 @@
         "dest": "cargo/vendor/guillotiere"
     },
     {
-        "type": "shell",
-        "commands": [
-            "git clone --bare cargo/vendor/guillotiere cargo/git/db/guillotiere-5ee12d05767a71e5"
-        ]
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "if test -d cargo/vendor/guillotiere/guillotiere; then mv cargo/vendor/guillotiere cargo/vendor/guillotiere.bak; cp -ar --dereference --reflink=auto cargo/vendor/guillotiere.bak/guillotiere cargo/vendor/guillotiere; rm -r cargo/vendor/guillotiere.bak; fi"
-        ]
-    },
-    {
         "type": "file",
         "url": "data:%7B%22package%22%3A%20null%2C%20%22files%22%3A%20%7B%7D%7D",
         "dest": "cargo/vendor/guillotiere",
         "dest-filename": ".cargo-checksum.json"
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "echo rm -r cargo/vendor/guillotiere/.git"
-        ]
     },
     {
         "type": "file",
@@ -3475,28 +3407,10 @@
         "dest": "cargo/vendor/msgbox"
     },
     {
-        "type": "shell",
-        "commands": [
-            "git clone --bare cargo/vendor/msgbox cargo/git/db/msgbox-6cebf08016954849"
-        ]
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "if test -d cargo/vendor/msgbox/msgbox; then mv cargo/vendor/msgbox cargo/vendor/msgbox.bak; cp -ar --dereference --reflink=auto cargo/vendor/msgbox.bak/msgbox cargo/vendor/msgbox; rm -r cargo/vendor/msgbox.bak; fi"
-        ]
-    },
-    {
         "type": "file",
         "url": "data:%7B%22package%22%3A%20null%2C%20%22files%22%3A%20%7B%7D%7D",
         "dest": "cargo/vendor/msgbox",
         "dest-filename": ".cargo-checksum.json"
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "echo rm -r cargo/vendor/msgbox/.git"
-        ]
     },
     {
         "type": "file",
@@ -4272,28 +4186,10 @@
         "dest": "cargo/vendor/portpicker"
     },
     {
-        "type": "shell",
-        "commands": [
-            "git clone --bare cargo/vendor/portpicker cargo/git/db/portpicker-5d775b929ad4e6fb"
-        ]
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "if test -d cargo/vendor/portpicker/portpicker; then mv cargo/vendor/portpicker cargo/vendor/portpicker.bak; cp -ar --dereference --reflink=auto cargo/vendor/portpicker.bak/portpicker cargo/vendor/portpicker; rm -r cargo/vendor/portpicker.bak; fi"
-        ]
-    },
-    {
         "type": "file",
         "url": "data:%7B%22package%22%3A%20null%2C%20%22files%22%3A%20%7B%7D%7D",
         "dest": "cargo/vendor/portpicker",
         "dest-filename": ".cargo-checksum.json"
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "echo rm -r cargo/vendor/portpicker/.git"
-        ]
     },
     {
         "type": "file",
@@ -5498,28 +5394,10 @@
         "dest": "cargo/vendor/specs-idvs"
     },
     {
-        "type": "shell",
-        "commands": [
-            "git clone --bare cargo/vendor/specs-idvs cargo/git/db/specs-idvs-338cf85813c85a36"
-        ]
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "if test -d cargo/vendor/specs-idvs/specs-idvs; then mv cargo/vendor/specs-idvs cargo/vendor/specs-idvs.bak; cp -ar --dereference --reflink=auto cargo/vendor/specs-idvs.bak/specs-idvs cargo/vendor/specs-idvs; rm -r cargo/vendor/specs-idvs.bak; fi"
-        ]
-    },
-    {
         "type": "file",
         "url": "data:%7B%22package%22%3A%20null%2C%20%22files%22%3A%20%7B%7D%7D",
         "dest": "cargo/vendor/specs-idvs",
         "dest-filename": ".cargo-checksum.json"
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "echo rm -r cargo/vendor/specs-idvs/.git"
-        ]
     },
     {
         "type": "file",
@@ -6100,28 +5978,10 @@
         "dest": "cargo/vendor/treeculler"
     },
     {
-        "type": "shell",
-        "commands": [
-            "git clone --bare cargo/vendor/treeculler cargo/git/db/treeculler-4ba58cc67bdff602"
-        ]
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "if test -d cargo/vendor/treeculler/treeculler; then mv cargo/vendor/treeculler cargo/vendor/treeculler.bak; cp -ar --dereference --reflink=auto cargo/vendor/treeculler.bak/treeculler cargo/vendor/treeculler; rm -r cargo/vendor/treeculler.bak; fi"
-        ]
-    },
-    {
         "type": "file",
         "url": "data:%7B%22package%22%3A%20null%2C%20%22files%22%3A%20%7B%7D%7D",
         "dest": "cargo/vendor/treeculler",
         "dest-filename": ".cargo-checksum.json"
-    },
-    {
-        "type": "shell",
-        "commands": [
-            "echo rm -r cargo/vendor/treeculler/.git"
-        ]
     },
     {
         "type": "file",
@@ -6925,7 +6785,7 @@
     },
     {
         "type": "file",
-        "url": "data:%5Bsource.vendored-sources%5D%0Adirectory%20%3D%20%22cargo/vendor%22%0A%0A%5Bsource.crates-io%5D%0Areplace-with%20%3D%20%22vendored-sources%22%0A%0A%5Bsource.%22https%3A//gitlab.com/veloren/auth%22%5D%0Agit%20%3D%20%22https%3A//gitlab.com/veloren/auth%22%0Abranch%20%3D%20%22master%22%0Areplace-with%20%3D%20%22vendored-sources%22%0A%0A%5Bsource.%22https%3A//gitlab.com/veloren/conrod%22%5D%0Agit%20%3D%20%22https%3A//gitlab.com/veloren/conrod%22%0Abranch%20%3D%20%22capucho/hide_text_cursor_fix%22%0Areplace-with%20%3D%20%22vendored-sources%22%0A%0A%5Bsource.%22https%3A//github.com/imberflur/guillotiere%22%5D%0Agit%20%3D%20%22https%3A//github.com/imberflur/guillotiere%22%0Abranch%20%3D%20%22master%22%0Areplace-with%20%3D%20%22vendored-sources%22%0A%0A%5Bsource.%22https%3A//github.com/bekker/msgbox-rs%22%5D%0Agit%20%3D%20%22https%3A//github.com/bekker/msgbox-rs%22%0Abranch%20%3D%20%22master%22%0Areplace-with%20%3D%20%22vendored-sources%22%0A%0A%5Bsource.%22https%3A//github.com/wusyong/portpicker-rs%22%5D%0Agit%20%3D%20%22https%3A//github.com/wusyong/portpicker-rs%22%0Abranch%20%3D%20%22fix_ipv6%22%0Areplace-with%20%3D%20%22vendored-sources%22%0A%0A%5Bsource.%22https%3A//gitlab.com/veloren/specs-idvs%22%5D%0Agit%20%3D%20%22https%3A//gitlab.com/veloren/specs-idvs%22%0Abranch%20%3D%20%22master%22%0Areplace-with%20%3D%20%22vendored-sources%22%0A%0A%5Bsource.%22https%3A//gitlab.com/yusdacra/treeculler%22%5D%0Agit%20%3D%20%22https%3A//gitlab.com/yusdacra/treeculler%22%0Abranch%20%3D%20%22master%22%0Areplace-with%20%3D%20%22vendored-sources%22%0A",
+        "url": "data:%5Bsource.vendored-sources%5D%0Adirectory%20%3D%20%22cargo/vendor%22%0A%0A%5Bsource.crates-io%5D%0Areplace-with%20%3D%20%22vendored-sources%22%0A%0A%5Bsource.%22https%3A//gitlab.com/veloren/auth%22%5D%0Agit%20%3D%20%22https%3A//gitlab.com/veloren/auth%22%0Areplace-with%20%3D%20%22vendored-sources%22%0Arev%20%3D%20%2265571ade0d954a0e0bd995fdb314854ff146ab97%22%0A%0A%5Bsource.%22https%3A//gitlab.com/veloren/conrod%22%5D%0Agit%20%3D%20%22https%3A//gitlab.com/veloren/conrod%22%0Areplace-with%20%3D%20%22vendored-sources%22%0Abranch%20%3D%20%22capucho/hide_text_cursor_fix%22%0A%0A%5Bsource.%22https%3A//github.com/imberflur/guillotiere%22%5D%0Agit%20%3D%20%22https%3A//github.com/imberflur/guillotiere%22%0Areplace-with%20%3D%20%22vendored-sources%22%0Abranch%20%3D%20%22master%22%0A%0A%5Bsource.%22https%3A//github.com/bekker/msgbox-rs%22%5D%0Agit%20%3D%20%22https%3A//github.com/bekker/msgbox-rs%22%0Areplace-with%20%3D%20%22vendored-sources%22%0Arev%20%3D%20%2268fe39a%22%0A%0A%5Bsource.%22https%3A//github.com/wusyong/portpicker-rs%22%5D%0Agit%20%3D%20%22https%3A//github.com/wusyong/portpicker-rs%22%0Areplace-with%20%3D%20%22vendored-sources%22%0Abranch%20%3D%20%22fix_ipv6%22%0A%0A%5Bsource.%22https%3A//gitlab.com/veloren/specs-idvs%22%5D%0Agit%20%3D%20%22https%3A//gitlab.com/veloren/specs-idvs%22%0Areplace-with%20%3D%20%22vendored-sources%22%0Abranch%20%3D%20%22master%22%0A%0A%5Bsource.%22https%3A//gitlab.com/yusdacra/treeculler%22%5D%0Agit%20%3D%20%22https%3A//gitlab.com/yusdacra/treeculler%22%0Areplace-with%20%3D%20%22vendored-sources%22%0Abranch%20%3D%20%22master%22%0A",
         "dest": "cargo",
         "dest-filename": "config"
     }
