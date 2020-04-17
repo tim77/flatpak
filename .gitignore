@@ -1,5 +1,7 @@
 .flatpak-builder/
 1-exclude-from-repo/
 build-dir/
+flathub-upstream/
+flathub/
 flatpak-builder-tools/
 repo/
