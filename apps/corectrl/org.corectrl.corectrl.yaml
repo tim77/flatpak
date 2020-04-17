@@ -1,0 +1,55 @@
+# WIP
+id: org.corectrl.corectrl
+runtime: org.kde.Platform
+runtime-version: '5.14'
+sdk: org.kde.Sdk
+command: corectrl
+finish-args:
+  - --device=dri
+  - --share=ipc
+  - --share=network
+  - --socket=pulseaudio
+  - --socket=wayland
+  - --socket=x11
+modules:
+  - name: "botan-2"
+    buildsystem: simple
+    build-commands: 
+      - "python3 ./configure.py \
+          --disable-cc-tests \
+          --disable-static-library \
+          --prefix=/app \
+          --with-openssl \
+          --with-zlib \
+          --without-documentation"
+      - make -j${FLATPAK_BUILDER_N_JOBS}
+      - make install
+    sources: 
+      - type: git
+        url: https://github.com/randombit/botan.git
+        tag: 2.14.0
+        commit: 3a26a33de2459c40cdfb766f4035a60cf449ab1c
+  - name: libdrm
+    buildsystem: meson
+    sources: 
+      - type: archive
+        url: https://dri.freedesktop.org/libdrm/libdrm-2.4.101.tar.xz
+        sha256: ddf31baa8e49473624860bd166ce654dc349873f7a6c7b3305964249315c78a7
+  - name: corectrl
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DBUILD_TESTING=ON
+      - -DCMAKE_INSTALL_PREFIX=/app
+    # make-args: [ -v ]
+    builddir: true
+    sources:
+      - type: git
+        url: https://gitlab.com/corectrl/corectrl/
+        tag: v1.0.8
+        commit: 7a7f9078c6e7207a34aa965ef971a132fe4fd45c
+      - type: patch
+        path: add-include-qdbuspendingcall.patch
+      - type: shell
+        commands:
+        - sed -i "/stdc++fs/d" src/helper/CMakeLists.txt
+        - sed -i "/stdc++fs/d" src/CMakeLists.txt
