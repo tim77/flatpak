@@ -6,6 +6,7 @@ sdk: org.kde.Sdk
 command: audacious
 finish-args:
   - --device=dri
+  - --filesystem=xdg-music
   - --own-name=org.atheme.audacious
   - --share=ipc
   - --share=network
