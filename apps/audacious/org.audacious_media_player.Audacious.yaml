@@ -1,0 +1,49 @@
+# WIP
+id: org.audacious_media_player.Audacious
+runtime: org.kde.Platform
+runtime-version: '5.14'
+sdk: org.kde.Sdk
+command: audacious
+finish-args:
+  - --device=dri
+  - --own-name=org.atheme.audacious
+  - --share=ipc
+  - --share=network
+  - --socket=pulseaudio
+  - --socket=wayland
+  - --socket=x11
+modules:
+  # - name: neon
+  #   buildsystem: autotools
+  #   sources:
+  #     - type: git
+  #       url: https://github.com/notroj/neon
+  #       tag: 0.31.1
+  #       commit: f70610d024c116e0b7c2b5c933991d742aa26fe0
+  #     - type: patch
+  #       path: remove-hardcoded-install-paths.patch
+  - name: audacious
+    buildsystem: autotools
+    config-opts:
+      - --with-buildstamp=Flatpak package
+      # - --enable-gtk
+    sources:
+      - type: git
+        url: https://github.com/audacious-media-player/audacious
+        tag: audacious-4.0.2
+        commit: 04b39edd5f14949d8f1ba98640b75635e43a8f9a
+  - name: audacious-plugins
+    buildsystem: meson
+    config-opts:
+     - -D=adplug=false
+     - -D=cdaudio=false
+     - -D=cue=false
+     - -D=faad=false
+     - -D=mms=false
+     - -D=neon=false
+     - -D=notify=false
+    sources:
+      - type: git
+        url: https://github.com/audacious-media-player/audacious-plugins
+        tag: audacious-plugins-4.0.2
+        commit: ad9c6631ee6009a325d0e96a87a7b68b19be6c9f
