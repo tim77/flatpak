@@ -13,16 +13,49 @@ finish-args:
   - --socket=pulseaudio
   - --socket=wayland
   - --socket=x11
+  - --talk-name=org.freedesktop.Notifications
 modules:
-  # - name: neon
-  #   buildsystem: autotools
-  #   sources:
-  #     - type: git
-  #       url: https://github.com/notroj/neon
-  #       tag: 0.31.1
-  #       commit: f70610d024c116e0b7c2b5c933991d742aa26fe0
-  #     - type: patch
-  #       path: remove-hardcoded-install-paths.patch
+  - name: libnotify
+    buildsystem: meson
+    config-opts:
+      - -D=man=false
+    sources:
+      - type: archive
+        url: https://ftp.acc.umu.se/pub/GNOME/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
+        sha256: 66c0517ed16df7af258e83208faaf5069727dfd66995c4bbc51c16954d674761
+  # Plugins
+    modules:
+    # - name: neon
+    #   buildsystem: autotools
+    #   sources:
+    #     - type: git
+    #       url: https://github.com/notroj/neon
+    #       tag: 0.31.1
+    #       commit: f70610d024c116e0b7c2b5c933991d742aa26fe0
+    #     - type: patch
+    #       path: remove-hardcoded-install-paths.patch
+    # - name: cue
+    #   buildsystem: cmake-ninja
+    #   build-options:
+    #     cxxflags: -fPIC
+    #   sources:
+    #     - type: git
+    #       url: https://github.com/lipnitsk/libcue
+    #       tag: v2.2.1
+    #       commit: 1b0f3917b8f908c81bb646ce42f29cf7c86443a1
+    - name: faad
+      buildsystem: autotools
+      sources:
+        - type: git
+          url: https://github.com/gypified/libfaad
+          commit: 200ac175e58e5703385d6c9c104d54c9247d8a67
+    # - name: adplug
+    #   buildsystem: autotools
+    #   sources:
+    #     - type: git
+    #       url: https://github.com/adplug/adplug
+    #       # tag: adplug-2.3.1
+    #       commit: efe452df461d51dc741fbe063b8bf357dc7d0f10
   - name: audacious
     buildsystem: autotools
     config-opts:
@@ -35,14 +68,16 @@ modules:
         commit: 04b39edd5f14949d8f1ba98640b75635e43a8f9a
   - name: audacious-plugins
     buildsystem: meson
+    build-options:
+      cxxflags: -fPIC
     config-opts:
-     - -D=adplug=false
+     - -D=adplug=true
      - -D=cdaudio=false
      - -D=cue=false
-     - -D=faad=false
+     - -D=faad=true
      - -D=mms=false
      - -D=neon=false
-     - -D=notify=false
+     - -D=notify=true
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious-plugins
