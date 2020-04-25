@@ -34,15 +34,17 @@ modules:
           commit: f70610d024c116e0b7c2b5c933991d742aa26fe0
         - type: patch
           path: remove-hardcoded-install-paths.patch
-    # - name: cue
-    #   buildsystem: cmake-ninja
-    #   build-options:
-    #     cxxflags: -fPIC
-    #   sources:
-    #     - type: git
-    #       url: https://github.com/lipnitsk/libcue
-    #       tag: v2.2.1
-    #       commit: 1b0f3917b8f908c81bb646ce42f29cf7c86443a1
+    - name: cue
+      buildsystem: cmake-ninja
+      config-opts:
+        - -DBUILD_SHARED_LIBS:BOOL=ON
+      build-options:
+        cxxflags: -fPIC
+      sources:
+        - type: git
+          url: https://github.com/lipnitsk/libcue
+          tag: v2.2.1
+          commit: 1b0f3917b8f908c81bb646ce42f29cf7c86443a1
     - name: faad
       buildsystem: autotools
       sources:
@@ -136,10 +138,10 @@ modules:
     buildsystem: meson
     build-options:
       cxxflags: -fPIC
-    config-opts:
+    # config-opts:
     #  - -D=adplug=false
     #  - -D=cdaudio=false
-     - -D=cue=false
+    #  - -D=cue=false
     #  - -D=faad=false
     #  - -D=mms=false
     #  - -D=neon=false
