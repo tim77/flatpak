@@ -1,0 +1,3 @@
+[submodule "apps/minigalaxy/shared-modules"]
+	path = apps/minigalaxy/shared-modules
+	url = https://github.com/flathub/shared-modules.git
